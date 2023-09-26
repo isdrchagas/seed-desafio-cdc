@@ -1,5 +1,7 @@
-package cdc.dev.eficiente.cdc.author;
+package cdc.dev.eficiente.cdc;
 
+import cdc.dev.eficiente.cdc.author.AuthorController;
+import cdc.dev.eficiente.cdc.category.CategoryController;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -8,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-@RestControllerAdvice(assignableTypes = {AuthorController.class})
-public class AuthorRequestExceptionHandler {
+@RestControllerAdvice(assignableTypes = {AuthorController.class, CategoryController.class})
+public class RequestExceptionHandler {
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
