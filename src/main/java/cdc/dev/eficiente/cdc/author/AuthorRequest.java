@@ -19,6 +19,10 @@ public class AuthorRequest {
         this.description = description;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
     public Author toModel() {
         return new Author(this.name, this.email, this.description);
     }
