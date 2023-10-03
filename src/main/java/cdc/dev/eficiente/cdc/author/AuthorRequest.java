@@ -1,5 +1,6 @@
 package cdc.dev.eficiente.cdc.author;
 
+import cdc.dev.eficiente.cdc.validator.UniqueValue;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
@@ -7,6 +8,7 @@ public class AuthorRequest {
 
     @Email
     @NotBlank
+    @UniqueValue(domainClass = Author.class, fieldName = "email")
     private String email;
     @NotBlank
     private String name;
