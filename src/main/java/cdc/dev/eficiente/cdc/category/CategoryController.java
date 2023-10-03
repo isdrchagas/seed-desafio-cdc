@@ -2,23 +2,15 @@ package cdc.dev.eficiente.cdc.category;
 
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class CategoryController {
 
     private final CategoryRepository categoryRepository;
-    private final CategoryUniqueNameValidator categoryUniqueNameValidator;
 
-    public CategoryController(CategoryRepository categoryRepository, CategoryUniqueNameValidator categoryUniqueNameValidator) {
+    public CategoryController(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
-        this.categoryUniqueNameValidator = categoryUniqueNameValidator;
-    }
-
-    @InitBinder("categoryRequest")
-    void initBinder(WebDataBinder webDataBinder) {
-        webDataBinder.addValidators(categoryUniqueNameValidator);
     }
 
     @PostMapping("/category/create")
